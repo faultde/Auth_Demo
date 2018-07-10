@@ -1,16 +1,33 @@
 <% include ./partials/header %>
 
 <div class="ui center aligned container">
+  <% if(!currentUser){ %>
 <h2 class="ui center aligned icon header">
   <i class="circular lock icon"></i>
   Auth_DEMO
 </h2>
+<% }else{ %>
+<h2 class="ui center aligned icon header">
+  <i class="circular lock open icon"></i>
+  Auth_DEMO
+</h2>
+
+<% } %>
+
 <p>
 Demo using passport local for user authorization
 </p>
+<% if(!currentUser){ %>
 <div class="ui header inverted item">
-    <a href="/secret" class="ui button">Click Me</a>
+    <a href="/secret" id="lock" class="ui button">Locked</a>
 </div>
+<% }else{ %>
+<div class="ui header inverted item">
+    <a href="/secret" id="lock" class="ui button">Unlock</a>
+</div>
+
+<%}%>
+
 </div>
  
 
